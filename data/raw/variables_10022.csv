@@ -1,0 +1,221 @@
+table,fieldName,description,dataType,units,downloadPkg,pubFormat,primaryKey,categoricalCodeName
+bet_archivepooling,uid,Unique ID within NEON database; an identifier for the record,string,NA,basic,asIs,N,NA
+bet_archivepooling,namedLocation,Name of the measurement location in the NEON database,string,NA,basic,asIs,N,NA
+bet_archivepooling,domainID,Unique identifier of the NEON domain,string,NA,basic,asIs,N,NA
+bet_archivepooling,siteID,NEON site code,string,NA,basic,asIs,N,NA
+bet_archivepooling,plotID,Plot identifier (NEON site code_XXX),string,NA,basic,asIs,N,NA
+bet_archivepooling,setDate,Date that trap was set,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_archivepooling,collectDate,Date of the collection event,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_archivepooling,processingDate,"Date that sample was processed (i.e., sorted or pinned) in the domain lab",dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_archivepooling,subsampleIDList,List of subsampleIDs,string,NA,basic,obfuscate,N,NA
+bet_archivepooling,subsampleCode,Barcode of a subsample,string,NA,basic,asIs,N,NA
+bet_archivepooling,archiveVialID,Identifier for the vial containing specimens for archive,string,NA,basic,obfuscate,Y,NA
+bet_archivepooling,archiveSampleCode,Barcode of archive sample,string,NA,basic,asIs,N,NA
+bet_archivepooling,sampleCondition,Condition of a sample,string,NA,basic,LOV,N,bet.sampleCompromised
+bet_archivepooling,sampleType,Type of sample,string,NA,basic,LOV,N,bet.sampleType
+bet_archivepooling,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,basic,asIs,N,NA
+bet_archivepooling,taxonID,"Species code, based on one or more sources",string,NA,basic,asIs,N,NA
+bet_archivepooling,recordedBy,An identifier for the technician who recorded the data,string,NA,basic,asIs,N,NA
+bet_archivepooling,remarks,Technician notes; free text comments accompanying the record,string,NA,basic,asIs,N,NA
+bet_archivepooling,pooledFromMultiplePlots,"Data quality flag indicating when composite samples, pooled samples, or sample mixtures are derived from more than one plot at a site",string,NA,basic,asIs,N,NA
+bet_archivepooling,identificationHistoryID,Identifier for linking records related to this identification history,string,NA,basic,asIs,Y,NA
+bet_archivepooling,publicationDate,Date of data publication on the NEON data portal,dateTime,NA,appended by stackByTable,NA,N,
+bet_archivepooling,release,Identifier for data release,string,NA,appended by stackByTable,NA,N,
+bet_bycatchIDHistory,uid,Unique ID within NEON database; an identifier for the record,string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,identificationTable,The table(s) containing the record to which this identification history applies,string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,domainID,Unique identifier of the NEON domain,string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,siteID,NEON site code,string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,namedLocation,Name of the measurement location in the NEON database,string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,identificationHistoryID,Identifier for linking records related to this identification history,string,NA,expanded,asIs,Y,NA
+bet_bycatchIDHistory,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,expanded,yyyy-MM-dd(floor),Y,NA
+bet_bycatchIDHistory,endDate,The end date-time or interval during which an event occurred,dateTime,NA,expanded,yyyy-MM-dd(floor),N,NA
+bet_bycatchIDHistory,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,taxonID,"Species code, based on one or more sources",string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,acceptedTaxonID,"Accepted species code, based on one or more sources",string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,identificationQualifier,A standard term to express the determiner's doubts about the Identification,string,NA,expanded,LOV,N,identificationQualifiersExpert
+bet_bycatchIDHistory,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,expanded,LOV,N,bet.identificationReferences
+bet_bycatchIDHistory,identificationRemarks,Comments or notes about the identification,string,NA,expanded,LOV,N,identificationRemarks
+bet_bycatchIDHistory,remarks,Technician notes; free text comments accompanying the record,string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,identifiedBy,An identifier for the technician who identified the specimen,string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,laboratoryName,Name of the laboratory or facility that is processing the sample,string,NA,expanded,asIs,N,NA
+bet_bycatchIDHistory,dataQF,Data quality flag,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDProcessed,uid,Unique ID within NEON database; an identifier for the record,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,namedLocation,Name of the measurement location in the NEON database,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,domainID,Unique identifier of the NEON domain,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,siteID,NEON site code,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,plotID,Plot identifier (NEON site code_XXX),string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,setDate,Date that trap was set,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_expertTaxonomistIDProcessed,collectDate,Date of the collection event,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_expertTaxonomistIDProcessed,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_expertTaxonomistIDProcessed,individualID,Domain-level unique identifier for an individual: NEON.MOD.D##.######,string,NA,basic,asIs,Y,NA
+bet_expertTaxonomistIDProcessed,taxonID,"Species code, based on one or more sources",string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,kingdom,The scientific name of the kingdom in which the taxon is classified,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,phylum,The scientific name of the phylum or division in which the taxon is classified,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,class,The scientific name of the class in which the taxon is classified,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,order,The scientific name of the order in which the taxon is classified,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,family,The scientific name of the family in which the taxon is classified,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,subfamily,The scientific name of the subfamily in which the organism is classified,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,tribe,The scientific name of the tribe in which the taxon is classified,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,genus,The scientific name of the genus in which the organism is classified,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,subgenus,The scientific name of the subgenus in which the taxon is classified. Values should include the genus to avoid homonym confusion,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,specificEpithet,The specific epithet (second part of the species name) of the scientific name applied to the taxon,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,infraspecificEpithet,The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,scientificNameAuthorship,Name of the individual(s) who designated the scientific name of the taxon,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,taxonRank,The lowest level taxonomic rank that can be determined for the individual or specimen,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,identificationQualifier,A standard term to express the determiner's doubts about the Identification,string,NA,basic,LOV,N,identificationQualifiersExpert
+bet_expertTaxonomistIDProcessed,sex,"M for male, F for female, U for unknown",string,NA,basic,LOV,N,sex
+bet_expertTaxonomistIDProcessed,morphospeciesID,Identifier for morphospecies,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,basic,LOV,N,bet.identificationReferences
+bet_expertTaxonomistIDProcessed,identifiedBy,An identifier for the technician who identified the specimen,string,NA,basic,LOV,Y,bet.expertIdentifiers
+bet_expertTaxonomistIDProcessed,nativeStatusCode,The process by which the taxon became established in the location,string,NA,basic,LOV,N,Taxon Native Status
+bet_expertTaxonomistIDProcessed,laboratoryName,Name of the laboratory or facility that is processing the sample,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,identificationRemarks,Comments or notes about the identification,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,sampleCondition,Condition of a sample,string,NA,basic,LOV,N,bet.sampleCompromised
+bet_expertTaxonomistIDProcessed,remarks,Technician notes; free text comments accompanying the record,string,NA,basic,asIs,N,NA
+bet_expertTaxonomistIDProcessed,identificationHistoryID,Identifier for linking records related to this identification history,string,NA,basic,asIs,Y,NA
+bet_expertTaxonomistIDProcessed,publicationDate,Date of data publication on the NEON data portal,dateTime,NA,appended by stackByTable,NA,N,
+bet_expertTaxonomistIDProcessed,release,Identifier for data release,string,NA,appended by stackByTable,NA,N,
+bet_expertTaxonomistIDRaw,uid,Unique ID within NEON database; an identifier for the record,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,namedLocation,Name of the measurement location in the NEON database,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,domainID,Unique identifier of the NEON domain,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,siteID,NEON site code,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,plotID,Plot identifier (NEON site code_XXX),string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,setDate,Date that trap was set,dateTime,NA,expanded,yyyy-MM-dd(floor),N,NA
+bet_expertTaxonomistIDRaw,collectDate,Date of the collection event,dateTime,NA,expanded,yyyy-MM-dd(floor),N,NA
+bet_expertTaxonomistIDRaw,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,expanded,yyyy-MM-dd(floor),N,NA
+bet_expertTaxonomistIDRaw,individualID,Domain-level unique identifier for an individual: NEON.MOD.D##.######,string,NA,expanded,asIs,Y,NA
+bet_expertTaxonomistIDRaw,taxonID,"Species code, based on one or more sources",string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,kingdom,The scientific name of the kingdom in which the taxon is classified,string,NA,expanded,Title,N,NA
+bet_expertTaxonomistIDRaw,phylum,The scientific name of the phylum or division in which the taxon is classified,string,NA,expanded,Title,N,NA
+bet_expertTaxonomistIDRaw,class,The scientific name of the class in which the taxon is classified,string,NA,expanded,Title,N,NA
+bet_expertTaxonomistIDRaw,order,The scientific name of the order in which the taxon is classified,string,NA,expanded,Title,N,NA
+bet_expertTaxonomistIDRaw,family,The scientific name of the family in which the taxon is classified,string,NA,expanded,Title,N,NA
+bet_expertTaxonomistIDRaw,subfamily,The scientific name of the subfamily in which the organism is classified,string,NA,expanded,Title,N,NA
+bet_expertTaxonomistIDRaw,tribe,The scientific name of the tribe in which the taxon is classified,string,NA,expanded,Title,N,NA
+bet_expertTaxonomistIDRaw,genus,The scientific name of the genus in which the organism is classified,string,NA,expanded,Title,N,NA
+bet_expertTaxonomistIDRaw,subgenus,The scientific name of the subgenus in which the taxon is classified. Values should include the genus to avoid homonym confusion,string,NA,expanded,Title,N,NA
+bet_expertTaxonomistIDRaw,specificEpithet,The specific epithet (second part of the species name) of the scientific name applied to the taxon,string,NA,expanded,lower,N,NA
+bet_expertTaxonomistIDRaw,infraspecificEpithet,The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon,string,NA,expanded,lower,N,NA
+bet_expertTaxonomistIDRaw,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,scientificNameAuthorship,Name of the individual(s) who designated the scientific name of the taxon,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,identificationQualifier,A standard term to express the determiner's doubts about the Identification,string,NA,expanded,LOV,N,identificationQualifiersExpert
+bet_expertTaxonomistIDRaw,sex,"M for male, F for female, U for unknown",string,NA,expanded,LOV,N,sex
+bet_expertTaxonomistIDRaw,morphospeciesID,Identifier for morphospecies,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,expanded,LOV,N,bet.identificationReferences
+bet_expertTaxonomistIDRaw,identifiedBy,An identifier for the technician who identified the specimen,string,NA,expanded,LOV,Y,bet.expertIdentifiers
+bet_expertTaxonomistIDRaw,laboratoryName,Name of the laboratory or facility that is processing the sample,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,identificationRemarks,Comments or notes about the identification,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,sampleCondition,Condition of a sample,string,NA,expanded,LOV,N,bet.sampleCompromised
+bet_expertTaxonomistIDRaw,remarks,Technician notes; free text comments accompanying the record,string,NA,expanded,asIs,N,NA
+bet_expertTaxonomistIDRaw,identificationHistoryID,Identifier for linking records related to this identification history,string,NA,expanded,asIs,Y,NA
+bet_fielddata,uid,Unique ID within NEON database; an identifier for the record,string,NA,basic,asIs,N,NA
+bet_fielddata,namedLocation,Name of the measurement location in the NEON database,string,NA,basic,asIs,N,NA
+bet_fielddata,domainID,Unique identifier of the NEON domain,string,NA,basic,asIs,N,NA
+bet_fielddata,siteID,NEON site code,string,NA,basic,asIs,N,NA
+bet_fielddata,plotID,Plot identifier (NEON site code_XXX),string,NA,basic,asIs,Y,NA
+bet_fielddata,trapID,Identifier for trap,string,NA,basic,LOV,Y,bet.trapID
+bet_fielddata,plotType,"NEON plot type in which sampling occurred: tower, distributed or gradient",string,NA,basic,asIs,N,NA
+bet_fielddata,nlcdClass,National Land Cover Database Vegetation Type Name,string,NA,basic,asIs,N,NA
+bet_fielddata,decimalLatitude,"The geographic latitude (in decimal degrees, WGS84) of the geographic center of the reference area",real,decimalDegree,basic,*.######(round),N,NA
+bet_fielddata,decimalLongitude,"The geographic longitude (in decimal degrees, WGS84) of the geographic center of the reference area",real,decimalDegree,basic,*.######(round),N,NA
+bet_fielddata,geodeticDatum,Model used to measure horizontal position on the earth,string,NA,basic,UPPER,N,NA
+bet_fielddata,coordinateUncertainty,The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location. Zero is not a valid value for this term,real,meter,basic,*.#(round),N,NA
+bet_fielddata,elevation,Elevation (in meters) above sea level,real,meter,basic,*.#(round),N,NA
+bet_fielddata,elevationUncertainty,Uncertainty in elevation values (in meters),real,meter,basic,*.#(round),N,NA
+bet_fielddata,setDate,Date that trap was set,dateTime,NA,basic,yyyy-MM-dd(floor),Y,NA
+bet_fielddata,collectDate,Date of the collection event,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_fielddata,eventID,"An identifier for the set of information associated with the event, which includes information about the place and time of the event",string,NA,basic,asIs,N,NA
+bet_fielddata,trappingDays,Decimal days between trap setting and collecting events,real,nominalDay,basic,integer,N,NA
+bet_fielddata,sampleCollected,Indicator of whether a sample was collected,string,NA,basic,LOV,N,Yes or No choice
+bet_fielddata,sampleID,Identifier for sample,string,NA,basic,asIs,N,NA
+bet_fielddata,sampleCode,Barcode of a sample,string,NA,basic,asIs,N,NA
+bet_fielddata,sampleCondition,Condition of a sample,string,NA,basic,LOV,N,bet.sampleCompromised
+bet_fielddata,cupStatus,Indicator of whether the cup of the trap was disturbed or missing during the sampling bout,string,NA,basic,LOV,N,bet.cupStatus
+bet_fielddata,lidStatus,Indicator of whether the lid of the trap was disturbed or missing during the sampling bout,string,NA,basic,LOV,N,bet.lidStatus
+bet_fielddata,fluidLevel,Fluid level in the trap when it was collected; High (above line); Low (below line) or Ok,string,NA,basic,LOV,N,bet.fluidLevel
+bet_fielddata,samplingProtocolVersion,The NEON document number and version where detailed information regarding the sampling method used is available; format NEON.DOC.######vX,string,NA,basic,LOV,N,bet.samplingProtocolVersion
+bet_fielddata,samplingImpractical,Samples and/or measurements were not collected due to the indicated circumstance,string,NA,basic,LOV,N,samplingImpractical
+bet_fielddata,recordedBy,An identifier for the technician who recorded the data,string,NA,basic,asIs,N,NA
+bet_fielddata,remarks,Technician notes; free text comments accompanying the record,string,NA,basic,asIs,N,NA
+bet_fielddata,publicationDate,Date of data publication on the NEON data portal,dateTime,NA,appended by stackByTable,NA,N,
+bet_fielddata,release,Identifier for data release,string,NA,appended by stackByTable,NA,N,
+bet_identificationHistory,uid,Unique ID within NEON database; an identifier for the record,string,NA,expanded,asIs,N,NA
+bet_identificationHistory,identificationTable,The table(s) containing the record to which this identification history applies,string,NA,expanded,asIs,N,NA
+bet_identificationHistory,domainID,Unique identifier of the NEON domain,string,NA,expanded,asIs,N,NA
+bet_identificationHistory,siteID,NEON site code,string,NA,expanded,asIs,N,NA
+bet_identificationHistory,namedLocation,Name of the measurement location in the NEON database,string,NA,expanded,asIs,N,NA
+bet_identificationHistory,identificationHistoryID,Identifier for linking records related to this identification history,string,NA,expanded,asIs,Y,NA
+bet_identificationHistory,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,expanded,yyyy-MM-dd(floor),Y,NA
+bet_identificationHistory,endDate,The end date-time or interval during which an event occurred,dateTime,NA,expanded,yyyy-MM-dd(floor),N,NA
+bet_identificationHistory,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,expanded,asIs,N,NA
+bet_identificationHistory,taxonID,"Species code, based on one or more sources",string,NA,expanded,asIs,N,NA
+bet_identificationHistory,acceptedTaxonID,"Accepted species code, based on one or more sources",string,NA,expanded,asIs,N,NA
+bet_identificationHistory,identificationQualifier,A standard term to express the determiner's doubts about the Identification,string,NA,expanded,LOV,N,identificationQualifiersExpert
+bet_identificationHistory,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,expanded,LOV,N,bet.identificationReferences
+bet_identificationHistory,identificationRemarks,Comments or notes about the identification,string,NA,expanded,LOV,N,identificationRemarks
+bet_identificationHistory,remarks,Technician notes; free text comments accompanying the record,string,NA,expanded,asIs,N,NA
+bet_identificationHistory,identifiedBy,An identifier for the technician who identified the specimen,string,NA,expanded,asIs,N,NA
+bet_identificationHistory,laboratoryName,Name of the laboratory or facility that is processing the sample,string,NA,expanded,asIs,N,NA
+bet_identificationHistory,dataQF,Data quality flag,string,NA,expanded,asIs,N,NA
+bet_parataxonomistID,uid,Unique ID within NEON database; an identifier for the record,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,namedLocation,Name of the measurement location in the NEON database,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,domainID,Unique identifier of the NEON domain,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,siteID,NEON site code,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,plotID,Plot identifier (NEON site code_XXX),string,NA,basic,asIs,N,NA
+bet_parataxonomistID,trapID,Identifier for trap,string,NA,basic,LOV,N,bet.trapID
+bet_parataxonomistID,setDate,Date that trap was set,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_parataxonomistID,collectDate,Date of the collection event,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_parataxonomistID,processingDate,"Date that sample was processed (i.e., sorted or pinned) in the domain lab",dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_parataxonomistID,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_parataxonomistID,subsampleID,Unique identifier associated with each subsample per sampleID,string,NA,basic,obfuscate,N,NA
+bet_parataxonomistID,subsampleCode,Barcode of a subsample,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,individualID,Domain-level unique identifier for an individual: NEON.MOD.D##.######,string,NA,basic,asIs,Y,NA
+bet_parataxonomistID,sampleCondition,Condition of a sample,string,NA,basic,LOV,N,bet.sampleCompromised
+bet_parataxonomistID,taxonID,"Species code, based on one or more sources",string,NA,basic,asIs,N,NA
+bet_parataxonomistID,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,basic,asIs,N,NA
+bet_parataxonomistID,taxonRank,The lowest level taxonomic rank that can be determined for the individual or specimen,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,identificationQualifier,A standard term to express the determiner's doubts about the Identification,string,NA,basic,LOV,N,Identification Qualifiers
+bet_parataxonomistID,scientificNameAuthorship,Name of the individual(s) who designated the scientific name of the taxon,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,morphospeciesID,Identifier for morphospecies,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,basic,LOV,N,bet.identificationReferences
+bet_parataxonomistID,nativeStatusCode,The process by which the taxon became established in the location,string,NA,basic,LOV,N,Taxon Native Status
+bet_parataxonomistID,totalLength,total length (head + body); in millimeters,unsigned integer,millimeter,basic,integer,N,NA
+bet_parataxonomistID,identifiedBy,An identifier for the technician who identified the specimen,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,recordedBy,An identifier for the technician who recorded the data,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,remarks,Technician notes; free text comments accompanying the record,string,NA,basic,asIs,N,NA
+bet_parataxonomistID,identificationHistoryID,Identifier for linking records related to this identification history,string,NA,basic,asIs,Y,NA
+bet_parataxonomistID,publicationDate,Date of data publication on the NEON data portal,dateTime,NA,appended by stackByTable,NA,N,
+bet_parataxonomistID,release,Identifier for data release,string,NA,appended by stackByTable,NA,N,
+bet_sorting,uid,Unique ID within NEON database; an identifier for the record,string,NA,basic,asIs,N,NA
+bet_sorting,namedLocation,Name of the measurement location in the NEON database,string,NA,basic,asIs,N,NA
+bet_sorting,domainID,Unique identifier of the NEON domain,string,NA,basic,asIs,N,NA
+bet_sorting,siteID,NEON site code,string,NA,basic,asIs,N,NA
+bet_sorting,plotID,Plot identifier (NEON site code_XXX),string,NA,basic,asIs,N,NA
+bet_sorting,trapID,Identifier for trap,string,NA,basic,LOV,N,bet.trapID
+bet_sorting,setDate,Date that trap was set,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_sorting,collectDate,Date of the collection event,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_sorting,processingDate,"Date that sample was processed (i.e., sorted or pinned) in the domain lab",dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_sorting,etOHChangeDate,Date the ethanol rinse was completed,dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_sorting,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,basic,yyyy-MM-dd(floor),N,NA
+bet_sorting,sampleID,Identifier for sample,string,NA,basic,asIs,N,NA
+bet_sorting,sampleCode,Barcode of a sample,string,NA,basic,asIs,N,NA
+bet_sorting,subsampleID,Unique identifier associated with each subsample per sampleID,string,NA,basic,obfuscate,Y,NA
+bet_sorting,subsampleCode,Barcode of a subsample,string,NA,basic,asIs,N,NA
+bet_sorting,sampleCondition,Condition of a sample,string,NA,basic,LOV,N,bet.sampleCompromised
+bet_sorting,sampleType,Type of sample,string,NA,basic,LOV,N,bet.sampleType
+bet_sorting,taxonID,"Species code, based on one or more sources",string,NA,basic,asIs,N,NA
+bet_sorting,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,basic,asIs,N,NA
+bet_sorting,taxonRank,The lowest level taxonomic rank that can be determined for the individual or specimen,string,NA,basic,asIs,N,NA
+bet_sorting,identificationQualifier,A standard term to express the determiner's doubts about the Identification,string,NA,basic,LOV,N,Identification Qualifiers
+bet_sorting,scientificNameAuthorship,Name of the individual(s) who designated the scientific name of the taxon,string,NA,basic,asIs,N,NA
+bet_sorting,morphospeciesID,Identifier for morphospecies,string,NA,basic,asIs,N,NA
+bet_sorting,individualCount,Number of individuals of the same type,unsigned integer,number,basic,integer,N,NA
+bet_sorting,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,basic,LOV,N,bet.identificationReferences
+bet_sorting,nativeStatusCode,The process by which the taxon became established in the location,string,NA,basic,LOV,N,Taxon Native Status
+bet_sorting,identifiedBy,An identifier for the technician who identified the specimen,string,NA,basic,asIs,N,NA
+bet_sorting,recordedBy,An identifier for the technician who recorded the data,string,NA,basic,asIs,N,NA
+bet_sorting,remarks,Technician notes; free text comments accompanying the record,string,NA,basic,asIs,N,NA
+bet_sorting,identificationHistoryID,Identifier for linking records related to this identification history,string,NA,basic,asIs,Y,NA
+bet_sorting,publicationDate,Date of data publication on the NEON data portal,dateTime,NA,appended by stackByTable,NA,N,
+bet_sorting,release,Identifier for data release,string,NA,appended by stackByTable,NA,N,
