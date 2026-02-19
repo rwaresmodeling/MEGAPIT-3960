@@ -1,14 +1,6 @@
 # Effect of leaf litter composition on ground beetle abundance/richness in Appalachia.
 
-## Deliverable 2 ReadMeIntructions:
-
-o A descriptive title for your project (can be longer than your repository name)
-o A short (~150-250 word) project overview that describes your research objective,
-hypothesis, and your plan to test the hypothesis.
-o A short (~150-250 word) description of the data you plan to use. What information does the
-data contain? Where was it collected? Where did you get it?
-o Citations for the NEON data products you are using. These should be copied directly from
-the NEON data portal web page.
+## Project Plan and Description
 
 Climate change affects forest composition, oftentimes negatively. Varying forest structure will change leaf litter composition, which often serves as a food source and habitat for many organisms, such as arthropods. Ground beetles are a highly diverse group of insects that may act as a bioindicator of insect population health and ecosystem shifts. With the uptick of insect population abundance concerns, it is important to monitor beetle diversity and abundance change over time in hyperdiverse, understudied, and imperiled regions like Appalachia. Our project aims to address these concerns through testing whether leaf litter composition affects the abundance of ground beetles in habitats along the Appalachian mountains. We predict that increased leaf litter biomass will be associated with increased ground beetle abundances in the sites.
 
