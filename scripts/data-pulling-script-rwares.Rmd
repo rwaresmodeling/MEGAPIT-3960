@@ -1,0 +1,99 @@
+---
+title: "data-pulling-script"
+author: "riley wares"
+date: "2026-02-19"
+output: html_document
+---
+
+
+```{r setup packages, eval=FALSE}
+#install.packages("neonUtilities")
+#install.packages("here")
+#install.packages("tidyverse")
+
+library(neonUtilities)
+library(here)
+library(tidyverse)
+```
+
+
+
+```{r pull data, eval=FALSE}
+
+siteList <- c("GRSM", #Great Smoky Mountains - TN - D07
+              "MLBS", #Mountain Lake Biological Station - VA - D07
+              "ORNL", #Oak Ridge NEON - TN - D07
+              "SCBI", #Smithsonian Conservation Biology Institute - VA - DO2
+              "BART", #Bartlett Experimental Forest - NH - D01
+              "HARV") #Harvard Forest & Quabbin Watershed - MA - D01
+
+
+list2env((loadByProduct(dpID = "DP1.10033.001", #Litterfall and fine woody debris production and chemistry
+          site = siteList, include.provisional = FALSE,
+          startdate = "2016-01",
+          enddate = "2024-12")), .GlobalEnv)
+
+ltr_chemistrySubsampling %>% 
+  write_csv(here("data", "raw", "ltr_chemistrySubsampling.csv"))
+
+ltr_fielddata %>% 
+  write_csv(here("data", "raw", "ltr_fielddata.csv"))
+
+ltr_litterCarbonNitrogen %>%
+  write_csv(here("data", "raw", "ltr_litterCarbonNitrogen.csv"))
+
+ltr_litterLignin %>%
+  write_csv(here("data", "raw", "ltr_litterLignin.csv")) 
+
+ltr_massdata %>% 
+  write_csv(here("data", "raw", "ltr_massdata.csv")) 
+
+ltr_pertrap %>% 
+  write_csv(here("data", "raw", "ltr_pertrap.csv"))
+
+variables_10033 %>% 
+  write_csv(here("data", "raw", "variables_10033.csv"))
+
+
+list2env((loadByProduct(dpID = "DP1.10022.001", #Group beetles sampled from pitfall traps
+          site = siteList, include.provisional = FALSE,
+          startdate = "2016-01",
+          enddate = "2024-12")), .GlobalEnv)
+
+variables_10022 %>% 
+  write_csv(here("data", "raw", "variables_10022.csv"))
+
+bet_archivepooling %>% 
+  write_csv(here("data", "raw", "bet_archivepooling.csv"))
+
+bet_expertTaxonomistIDProcessed %>% 
+  write_csv(here("data", "raw", "bet_expertTaxonomistIDProcessed.csv"))
+
+bet_fielddata %>% 
+  write_csv(here("data", "raw", "bet_fielddata.csv"))
+
+bet_parataxonomistID %>% 
+  write_csv(here("data", "raw", "bet_parataxonomistID.csv"))
+
+bet_sorting %>% 
+  write_csv(here("data", "raw", "bet_sorting.csv"))
+
+
+### ISSUE LOGS
+issueLog_10022 %>% 
+  write_csv(here("data", "raw", "issueLog_10022.csv"))
+
+issueLog_10033 %>% 
+  write_csv(here("data", "raw", "issueLog_10033.csv"))
+
+
+### CATEGORICAL CODES
+
+categoricalCodes_10022 %>% 
+  write_csv(here("data", "raw", "categoricalCodes_10022.csv"))
+
+categoricalCodes_10033 %>% 
+  write_csv(here("data", "raw", "categoricalCodes_10033.csv"))
+
+
+```
