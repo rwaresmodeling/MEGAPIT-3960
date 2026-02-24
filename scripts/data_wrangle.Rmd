@@ -49,8 +49,31 @@ view(littercn)
 view(littermass)
 ```
 
+```{r remove na data}
+littercnclean <- littercn %>%
+  filter(!is.na(carbonPercent),
+         !is.na(nitrogenPercent))
 
+littermassclean <- littermass %>%
+  filter(!is.na(dryMass))
 
+beetleclean <- beetles %>%
+  filter(!is.na(taxonID))
+
+view(littercnclean) 
+view(littermassclean) 
+view(beetleclean)
+```
+
+```{r intermediate data processing}
+littercnclean %>%
+  write_csv(here("data", "processed", "littercn_clean_intermediate"))
+littermassclean %>%
+  write_csv(here("data", "processed", "littermass_clean_intermediate"))
+beetleclean %>%
+  write_csv(here("data", "processed", "beetle_clean_intermediate"))
+
+```
 
 
 
