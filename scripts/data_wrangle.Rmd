@@ -20,7 +20,40 @@ library(here)
 
 ```
 
+``` {r assign data}
+beetles_raw <- read_csv(here("data", "raw", "bet_parataxonomistID.csv"))
+litter_carbonnitrogenraw <- read_csv(here("data", "raw", "ltr_litterCarbonNitrogen.csv"))
+litter_massraw <- read_csv(here("data", "raw", "ltr_massdata.csv"))
 
-beetles_raw <- read_csv(here("data", "raw", "bet_fielddata.csv"))
-litter_raw <- read_csv(here("data", "raw", "ltr_fielddata.csv"))
+```
+
+``` {r view data}
+view(beetles_raw)
+view(litter_carbonnitrogenraw)
+view(litter_massraw)
+```
+
+``` {r collecting variables}
+beetles <- beetles_raw %>%
+  select(siteID, plotID, collectDate, taxonID, uid)
+
+littercn <- litter_carbonnitrogenraw %>%
+  select(siteID, plotID, collectDate, nitrogenPercent, carbonPercent, uid)
+
+littermass <- litter_massraw %>%
+  select(siteID, plotID, collectDate, dryMass, uid)
+```
+
+```{r view modified tables}
+view(littercn)
+view(littermass)
+```
+
+
+
+
+
+
+
+
 
