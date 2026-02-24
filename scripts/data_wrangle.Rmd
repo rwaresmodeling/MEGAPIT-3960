@@ -1,0 +1,82 @@
+---
+title: "megapit_data_wrangle"
+author: "zachary krausman"
+output: html_document
+date: "2026-02-24"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r load packages, message = FALSE}
+
+#install.packages("tidyverse")
+#install.packages("here")
+
+library(tidyverse)
+library(here)
+
+```
+
+``` {r assign data}
+beetles_raw <- read_csv(here("data", "raw", "bet_parataxonomistID.csv"))
+litter_carbonnitrogenraw <- read_csv(here("data", "raw", "ltr_litterCarbonNitrogen.csv"))
+litter_massraw <- read_csv(here("data", "raw", "ltr_massdata.csv"))
+
+```
+
+``` {r view data}
+view(beetles_raw)
+view(litter_carbonnitrogenraw)
+view(litter_massraw)
+```
+
+``` {r collecting variables}
+beetles <- beetles_raw %>%
+  select(siteID, plotID, collectDate, taxonID, uid)
+
+littercn <- litter_carbonnitrogenraw %>%
+  select(siteID, plotID, collectDate, nitrogenPercent, carbonPercent, uid)
+
+littermass <- litter_massraw %>%
+  select(siteID, plotID, collectDate, dryMass, uid)
+```
+
+```{r view modified tables}
+view(littercn)
+view(littermass)
+```
+
+```{r remove na data}
+littercnclean <- littercn %>%
+  filter(!is.na(carbonPercent),
+         !is.na(nitrogenPercent))
+
+littermassclean <- littermass %>%
+  filter(!is.na(dryMass))
+
+beetleclean <- beetles %>%
+  filter(!is.na(taxonID))
+
+view(littercnclean) 
+view(littermassclean) 
+view(beetleclean)
+```
+
+```{r intermediate data processing}
+littercnclean %>%
+  write_csv(here("data", "processed", "littercn_clean_intermediate"))
+littermassclean %>%
+  write_csv(here("data", "processed", "littermass_clean_intermediate"))
+beetleclean %>%
+  write_csv(here("data", "processed", "beetle_clean_intermediate"))
+
+```
+
+
+
+
+
+
