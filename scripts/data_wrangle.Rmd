@@ -44,6 +44,9 @@ littermass <- litter_massraw %>%
   select(siteID, plotID, collectDate, dryMass, uid)
 ```
 
+We collected data from multiple domain sites (D01, D02, and D07). As a note from NEON via DP1.10111.001 (Site management and event reporting), the data was "obfuscated to a higher taxonomic rank when the taxon was found to be listed as threatened, endangered, or sensitive at the state level where the observation was recorded". This was removed from data submitted for all sites except D01 and D20. We are using some sites from D01, but since many arthropods are not listed with protections, it is possible that some taxon levels are obfuscated, and some are not (i.e. some beetles maybe be listed at a higher taxonomic level instead of a genus or species resolution).
+
+
 ```{r view modified tables}
 view(littercn)
 view(littermass)
