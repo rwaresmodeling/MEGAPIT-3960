@@ -67,11 +67,11 @@ view(beetleclean)
 
 ```{r intermediate data processing}
 littercnclean %>%
-  write_csv(here("data", "processed", "littercn_clean_intermediate"))
+  write_csv(here("data", "processed", "littercn_clean_intermediate.csv"))
 littermassclean %>%
-  write_csv(here("data", "processed", "littermass_clean_intermediate"))
+  write_csv(here("data", "processed", "littermass_clean_intermediate.csv"))
 beetleclean %>%
-  write_csv(here("data", "processed", "beetle_clean_intermediate"))
+  write_csv(here("data", "processed", "beetle_clean_intermediate.csv"))
 
 ```
 
