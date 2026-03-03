@@ -5,11 +5,12 @@ output: html_document
 date: "2026-02-24"
 ---
 
+Setup (do not change).
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
+Load in (and install if needed) tidyverse and here packages. 
 ```{r load packages, message = FALSE}
 
 #install.packages("tidyverse")
@@ -20,19 +21,24 @@ library(here)
 
 ```
 
-``` {r assign data}
+
+Read in all three csvs for the beetle data, litter chemistry data, and litter dry mass data.
+``` {r read data}
 beetles_raw <- read_csv(here("data", "raw", "bet_parataxonomistID.csv"))
 litter_carbonnitrogenraw <- read_csv(here("data", "raw", "ltr_litterCarbonNitrogen.csv"))
 litter_massraw <- read_csv(here("data", "raw", "ltr_massdata.csv"))
 
 ```
 
+View all newly created raw data objects to see what we are working with.
 ``` {r view data}
 view(beetles_raw)
 view(litter_carbonnitrogenraw)
 view(litter_massraw)
 ```
 
+
+Selected only necessary columns from the raw data sets. 
 ``` {r collecting variables}
 beetles <- beetles_raw %>%
   select(siteID, plotID, collectDate, taxonID, uid)
@@ -44,11 +50,14 @@ littermass <- litter_massraw %>%
   select(siteID, plotID, collectDate, dryMass, uid)
 ```
 
+View data sets to check for NAs.
 ```{r view modified tables}
 view(littercn)
 view(littermass)
 ```
 
+
+Removed NAs from the data sets to leave only "clean" data sets. 
 ```{r remove na data}
 littercnclean <- littercn %>%
   filter(!is.na(carbonPercent),
@@ -65,13 +74,14 @@ view(littermassclean)
 view(beetleclean)
 ```
 
+Write csvs for processed data and save to processed data folder. 
 ```{r intermediate data processing}
 littercnclean %>%
-  write_csv(here("data", "processed", "littercn_clean_intermediate"))
+  write_csv(here("data", "processed", "littercn_clean_intermediate.csv"))
 littermassclean %>%
-  write_csv(here("data", "processed", "littermass_clean_intermediate"))
+  write_csv(here("data", "processed", "littermass_clean_intermediate.csv"))
 beetleclean %>%
-  write_csv(here("data", "processed", "beetle_clean_intermediate"))
+  write_csv(here("data", "processed", "beetle_clean_intermediate.csv"))
 
 ```
 
