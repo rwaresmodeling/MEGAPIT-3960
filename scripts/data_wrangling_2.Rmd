@@ -1,0 +1,104 @@
+---
+title: "data-joiner"
+author: "riley wares"
+date: "2026-03-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Loading/installing packages. 
+```{r load packages}
+
+#install.packages("pacman")
+library(pacman)
+
+pacman::p_load(tidyverse, here, cowplot)
+
+```
+
+
+Reading in clean datasets. 
+```{r import datasets}
+
+beetle_clean <- read.csv(here("data", "processed", "beetle_clean_intermediate.csv"))
+littercn_clean <- read.csv(here("data", "processed", "littercn_clean_intermediate.csv"))
+littermass_clean <- read.csv(here("data", "processed", "littermass_clean_intermediate.csv"))
+
+```
+
+
+Creating a column for beetle abundance by counting the number of beetle observations 
+per species per day. 
+```{r count beetles}
+
+beetle_abundance_taxonID <- beetle_clean %>%
+  group_by(plotID, collectDate, taxonID) %>%
+  summarize(count = n())
+
+```
+Creating a column for beetle richness per month by counting the number of unique 
+beetle species per month. 
+```{r count taxa}
+
+beetle_richness_taxonID <- beetle_abundance_taxonID %>%
+  group_by(plotID, collectDate) %>%
+  summarize(richness = n())
+
+```
+
+A note: Only two decimal places are approved for this data. We should treat anything less than 0.01 as 0.
+
+Created an average littermass dataset with columns for year, month and average littermass per month. 
+```{r average litter mass}
+
+litter_avg_mass <- littermass_clean %>%
+  mutate(monthCollected=month(collectDate), yearCollected=year(collectDate)) %>%
+  group_by(plotID, yearCollected, monthCollected) %>%
+  summarize(avgmass = mean(dryMass))
+
+```
+
+Created an average carbon and nitrogen dataset with columns for year, month and average nitrogen and carbon percents per month. 
+```{r average c and n}
+
+litter_avg_cn <- littercn_clean %>%
+  mutate(monthCollected=month(collectDate), yearCollected=year(collectDate)) %>%
+  group_by(plotID, yearCollected, monthCollected) %>%
+  summarize(avgCpercent = mean(carbonPercent), avgNpercent = mean(nitrogenPercent))
+
+```
+
+Combined the average littermass and average nitrogen and carbon datasets to have one
+litter data sets with all averages. 
+```{r full join litter data}
+
+litter_averages_total <- litter_avg_mass %>%
+  full_join(litter_avg_cn)
+
+```
+
+```{r export data}
+
+litter_averages_total %>%
+  write_csv(here("data", "processed", "litter_averages_total.csv"))
+
+beetle_abundance_taxonID %>%
+  write_csv(here("data", "processed", "beetle_abundance_taxonID.csv"))
+
+beetle_richness_taxonID %>%
+  write_csv(here("data", "processed", "beetle_richness_taxonID.csv"))
+
+```
+
+
+DAY TWO WORK
+
+```{r }
+beetle_abundance_monthly <- beetle_abundance_taxonID %>% 
+  mutate(monthCollected=month(collectDate), 
+         yearCollected=year(collectDate)) 
+
+```
