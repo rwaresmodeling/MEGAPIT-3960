@@ -29,6 +29,16 @@ littermass_clean <- read.csv(here("data", "processed", "littermass_clean_interme
 
 ```
 
+Reading in clean datasets. 
+```{r import datasets}
+
+beetle_clean <- read_csv(here("data", "processed", "beetle_clean_intermediate.csv"))
+
+littercn_clean <- read_csv(here("data", "processed", "littercn_clean_intermediate.csv"))
+
+littermass_clean <- read_csv(here("data", "processed", "littermass_clean_intermediate.csv"))
+
+```
 
 Creating a column for beetle abundance by counting the number of beetle observations 
 per species per day. 
@@ -39,6 +49,7 @@ beetle_abundance_taxonID <- beetle_clean %>%
   summarize(count = n())
 
 ```
+
 Creating a column for beetle richness per month by counting the number of unique 
 beetle species per month. 
 ```{r count taxa}
@@ -49,7 +60,7 @@ beetle_richness_taxonID <- beetle_abundance_taxonID %>%
 
 ```
 
-A note: Only two decimal places are approved for this data. We should treat anything less than 0.01 as 0.
+A note: Only two decimal places are approved for this data. We shpuld treat anything less than 0.01 as 0.
 
 Created an average littermass dataset with columns for year, month and average littermass per month. 
 ```{r average litter mass}
@@ -80,6 +91,8 @@ litter_averages_total <- litter_avg_mass %>%
 
 ```
 
+
+Export datasets to csvs. 
 ```{r export data}
 
 litter_averages_total %>%
