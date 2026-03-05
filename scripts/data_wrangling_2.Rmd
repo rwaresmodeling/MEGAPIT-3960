@@ -1,0 +1,118 @@
+---
+title: "data-joiner"
+author: "riley wares"
+date: "2026-03-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load packages}
+
+#install.packages("pacman")
+library(pacman)
+
+pacman::p_load(tidyverse, here, cowplot)
+
+```
+
+```{r import datasets}
+
+beetle_clean <- read.csv(here("data", "processed", "beetle_clean_intermediate.csv"))
+littercn_clean <- read.csv(here("data", "processed", "littercn_clean_intermediate.csv"))
+littermass_clean <- read.csv(here("data", "processed", "littermass_clean_intermediate.csv"))
+
+```
+
+```{r count beetles}
+
+beetle_abundance_taxonID <- beetle_clean %>%
+  group_by(plotID, collectDate, taxonID) %>%
+  summarize(count = n())
+
+```
+
+```{r count taxa}
+
+beetle_richness_taxonID <- beetle_abundance_taxonID %>%
+  group_by(plotID, collectDate) %>%
+  summarize(richness = n())
+
+```
+
+A note: Only two decimal places are approved for this data. We shpuld treat anything less than 0.01 as 0.
+
+```{r average litter mass}
+
+litter_avg_mass <- littermass_clean %>%
+  mutate(monthCollected=month(collectDate), yearCollected=year(collectDate)) %>%
+  group_by(plotID, yearCollected, monthCollected) %>%
+  summarize(avgmass = mean(dryMass))
+
+```
+
+
+```{r average c and n}
+
+litter_avg_cn <- littercn_clean %>%
+  mutate(monthCollected=month(collectDate), yearCollected=year(collectDate)) %>%
+  group_by(plotID, yearCollected, monthCollected) %>%
+  summarize(avgCpercent = mean(carbonPercent), avgNpercent = mean(nitrogenPercent))
+
+```
+
+
+```{r full join litter data}
+
+litter_averages_total <- litter_avg_mass %>%
+  full_join(litter_avg_cn)
+
+```
+
+
+Export datasets to csvs. 
+```{r export data}
+
+litter_averages_total %>%
+  write_csv(here("data", "processed", "litter_averages_total.csv"))
+
+beetle_abundance_taxonID %>%
+  write_csv(here("data", "processed", "beetle_abundance_taxonID.csv"))
+
+beetle_richness_taxonID %>%
+  write_csv(here("data", "processed", "beetle_richness_taxonID.csv"))
+
+```
+
+<<<<<<< Updated upstream
+=======
+
+DAY TWO WORK
+
+Create column for month and year for beetle abundance. 
+```{r }
+beetle_abundance_monthly <- beetle_abundance_taxonID %>% 
+  mutate(monthCollected = month(collectDate), 
+         yearCollected = year(collectDate)) %>% 
+  ungroup() %>% 
+  select(plotID, taxonID:yearCollected)
+
+```
+
+Join beetle monthly abundance and litter average mass 
+
+**Note**: Currently no matching plotID between two datasets
+```{r}
+
+abund_mass <- full_join(beetle_abundance_monthly, litter_avg_mass) 
+
+head(abund_mass)
+
+```
+
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
