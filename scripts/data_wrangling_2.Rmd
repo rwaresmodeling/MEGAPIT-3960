@@ -71,6 +71,8 @@ litter_averages_total <- litter_avg_mass %>%
 
 ```
 
+
+Export datasets to csvs. 
 ```{r export data}
 
 litter_averages_total %>%
@@ -84,3 +86,30 @@ beetle_richness_taxonID %>%
 
 ```
 
+<<<<<<< Updated upstream
+=======
+
+DAY TWO WORK
+
+Create column for month and year for beetle abundance. 
+```{r }
+beetle_abundance_monthly <- beetle_abundance_taxonID %>% 
+  mutate(monthCollected = month(collectDate), 
+         yearCollected = year(collectDate)) %>% 
+  ungroup() %>% 
+  select(plotID, taxonID:yearCollected)
+
+```
+
+Join beetle monthly abundance and litter average mass 
+
+**Note**: Currently no matching plotID between two datasets
+```{r}
+
+abund_mass <- full_join(beetle_abundance_monthly, litter_avg_mass) 
+
+head(abund_mass)
+
+```
+
+>>>>>>> Stashed changes
