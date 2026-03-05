@@ -90,6 +90,8 @@ Write csvs for processed data and save to processed data folder.
 
 littercnclean %>%
   write_csv(here("data", "processed", "littercn_clean_intermediate.csv"))
+littermassclean %>%
+  write_csv(here("data", "processed", "littermass_clean_intermediate.csv"))
 
 littermassclean %>%
   write_csv(here("data", "processed", "littermass_clean_intermediate.csv"))

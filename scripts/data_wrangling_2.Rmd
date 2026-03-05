@@ -19,6 +19,16 @@ pacman::p_load(tidyverse, here, cowplot)
 
 ```
 
+
+Reading in clean datasets. 
+```{r import datasets}
+
+beetle_clean <- read.csv(here("data", "processed", "beetle_clean_intermediate.csv"))
+littercn_clean <- read.csv(here("data", "processed", "littercn_clean_intermediate.csv"))
+littermass_clean <- read.csv(here("data", "processed", "littermass_clean_intermediate.csv"))
+
+```
+
 Reading in clean datasets. 
 ```{r import datasets}
 
@@ -96,24 +106,12 @@ beetle_richness_taxonID %>%
 
 ```
 
-Create column for month and year for beetle abundance. 
+
+DAY TWO WORK
+
 ```{r }
 beetle_abundance_monthly <- beetle_abundance_taxonID %>% 
-  mutate(monthCollected = month(collectDate), 
-         yearCollected = year(collectDate)) %>% 
-  ungroup() %>% 
-  select(plotID, taxonID:yearCollected)
+  mutate(monthCollected=month(collectDate), 
+         yearCollected=year(collectDate)) 
 
 ```
-
-Join beetle monthly abundance and litter average mass 
-
-**Note**: Currently no matching plotID between two datasets
-```{r}
-
-abund_mass <- full_join(beetle_abundance_monthly, litter_avg_mass) 
-
-head(abund_mass)
-
-```
-
